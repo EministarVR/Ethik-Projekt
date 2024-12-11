@@ -13,18 +13,26 @@
       color: #ffffff;
       background: #1a1a1a;
       overflow-x: hidden;
+      height: 100%;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       text-align: center;
       margin-top: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #ffffff;
+      animation: fadeIn 2s ease-out;
     }
 
     p {
       text-align: center;
       margin: 1rem 0;
       font-size: 1.2rem;
+      color: #d0d0d0;
+      opacity: 0;
+      animation: fadeIn 3s ease-out forwards;
     }
 
     .container {
@@ -40,9 +48,16 @@
       margin-top: 2rem;
     }
 
-    audio {
-      width: 90%;
-      max-width: 400px;
+    .audio-player audio {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .audio-player audio:hover {
+      transform: scale(1.05);
     }
 
     /* Über das Projekt */
@@ -50,16 +65,53 @@
       text-align: center;
       margin-top: 3rem;
       padding: 0 1rem;
+      opacity: 0;
+      animation: fadeIn 4s ease-out forwards;
     }
 
     .info-section h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
+      color: #ffffff;
     }
 
     .info-section p {
-      font-size: 1rem;
+      font-size: 1.2rem;
       line-height: 1.6;
+      color: #d0d0d0;
+    }
+
+    /* 3D Effekt */
+    .info-section {
+      transform: perspective(1500px) rotateY(30deg);
+      transition: transform 0.6s;
+    }
+
+    .info-section:hover {
+      transform: perspective(1500px) rotateY(0deg);
+    }
+
+    /* Partikel-Hintergrund */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: #1a1a1a;
+      z-index: 0;
+    }
+
+    /* Animation für Scrollen */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Responsives Design */
@@ -72,20 +124,13 @@
         font-size: 1rem;
       }
 
+      .audio-player audio {
+        width: 90%;
+      }
+
       .info-section h2 {
         font-size: 1.5rem;
       }
-    }
-
-    /* Partikel-Hintergrund */
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: #1a1a1a;
-      z-index: 0;
     }
   </style>
 </head>
@@ -112,8 +157,9 @@
     <div class="info-section">
       <h2>Über das Projekt</h2>
       <p>
-        Das Projekt "Schule ohne Rassismus" ist ein wichtiges Vorhaben, das von unserer Ethik-Gruppe ins Leben gerufen wurde. 
-        Es soll das Bewusstsein für Vielfalt und Respekt fördern und alle Schüler:innen ermutigen, aktiv gegen Diskriminierung einzutreten.
+        Das Projekt **"Schule ohne Rassismus"** ist ein bedeutendes Vorhaben der Ethik-Gruppe, das das Bewusstsein für Toleranz und Vielfalt fördert. 
+        Unser Ziel ist es, Schulen zu Orten der Akzeptanz und des Respekts zu machen, in denen jede:r willkommen ist und sich sicher fühlt. 
+        Wir laden alle ein, sich aktiv gegen Diskriminierung und Rassismus einzusetzen und für eine gleichberechtigte Gesellschaft zu kämpfen.
       </p>
     </div>
   </div>
