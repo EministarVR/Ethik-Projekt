@@ -3,66 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Podcast - Schule ohne Rassismus</title>
+  <title>Schule ohne Rassismus</title>
+  
+  <!-- Meta-Tags -->
+  <meta name="description" content="Das Projekt 'Schule ohne Rassismus' fördert Vielfalt und Respekt an Schulen.">
+  <meta name="keywords" content="Schule, Rassismus, Projekt, Vielfalt, Respekt, Toleranz">
+  <meta name="author" content="Nael-Emin Ben Oun">
+  <meta name="theme-color" content="#ff6600">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
   <style>
+    /* Allgemeine Stile */
     body, html {
       margin: 0;
       padding: 0;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #1a1a1a, #262626);
       color: #ffffff;
-      background: #141414;
+      scroll-behavior: smooth;
+      min-height: 100vh;
     }
 
-    .podcast-container {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .podcast-container h1 {
+    h1 {
       font-size: 3rem;
+      text-align: center;
+      margin: 2rem 0 1rem;
+      text-transform: uppercase;
       color: #ff6600;
-      margin-bottom: 2rem;
     }
 
-    .audio-player {
-      background: #222;
-      padding: 1rem;
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
+
+    .content-box {
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 850px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    .podcast-button {
+      display: inline-block;
+      background: #ff6600;
+      color: white;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .podcast-button:hover {
+      transform: scale(1.1);
+      background-color: #ff8533;
+    }
+
+    .team-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .team-member {
+      text-align: center;
+      width: 180px;
+    }
+
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .team-member h3 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: #ff6600;
+    }
+
+    .team-member p {
+      font-size: 0.9rem;
+      color: #ddd;
     }
 
     footer {
-      background: #222;
-      padding: 1rem;
+      background: #333;
+      padding: 1.5rem;
       text-align: center;
       color: #bbb;
+      margin-top: 3rem;
     }
 
     footer a {
-      color: #fff;
+      color: #ff6600;
       text-decoration: none;
-      font-size: 1.1rem;
+      margin: 0 1rem;
     }
 
     footer a:hover {
-      color: #ff6600;
+      color: #ff8533;
+    }
+
+    #scrollToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #ff6600;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1000;
+    }
+
+    #scrollToTop:hover {
+      transform: scale(1.1);
+      background-color: #ff8533;
+    }
+
+    #scrollToTop.visible {
+      visibility: visible;
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <div class="podcast-container">
-    <h1>Podcast - Schule ohne Rassismus</h1>
-    <div class="audio-player">
-      <audio controls>
-        <source src="Podcast.mp3" type="audio/mp3">
-        Dein Browser unterstützt das Audio-Element nicht.
-      </audio>
-    </div>
+  <!-- Header -->
+  <header>
+    <h1>Schule ohne Rassismus</h1>
+    <h2>Ein Projekt der Ethik-Gruppe</h2>
+  </header>
+
+  <!-- Über das Projekt -->
+  <div class="content-box">
+    <h2>Über das Projekt</h2>
+    <p>
+      Das Projekt "Schule ohne Rassismus" fördert das Bewusstsein für Vielfalt und Respekt. 
+      Unser Ziel ist eine gleichberechtigte Gesellschaft, frei von Diskriminierung und Vorurteilen.
+    </p>
+    <a href="podcast.html" class="podcast-button">Zum Podcast</a>
   </div>
 
+  <!-- Team-Sektion -->
+  <section class="team-section">
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150" alt="Nael-Emin Ben Oun">
+      <h3>Nael-Emin Ben Oun</h3>
+      <p>Coder der Website</p>
+    </div>
+    <!-- Weitere Team-Mitglieder -->
+  </section>
+
+  <!-- Scroll-to-Top-Pfeil -->
+  <div id="scrollToTop">↑</div>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2024 Schule ohne Rassismus</p>
-    <a href="index.html">Zurück zur Startseite</a>
+    <a href="#kontakt">Kontakt</a> | <a href="#impressum">Impressum</a>
   </footer>
+
+  <script>
+    // Scroll-to-Top-Button
+    const scrollToTop = document.getElementById("scrollToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        scrollToTop.classList.add("visible");
+      } else {
+        scrollToTop.classList.remove("visible");
+      }
+    });
+
+    scrollToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
