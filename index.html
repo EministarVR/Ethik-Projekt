@@ -42,70 +42,28 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
       opacity: 0;
       animation: fadeIn 3s ease-out forwards;
+      transform: perspective(1000px) rotateY(15deg);
     }
 
-    /* Benutzerdefinierter Audio-Player */
-    .audio-player-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 3rem;
-    }
-
-    .audio-player {
-      position: relative;
-      background: #333;
-      border-radius: 10px;
-      padding: 1rem;
-      width: 80%;
-      max-width: 600px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s ease;
-    }
-
-    .audio-player:hover {
-      transform: scale(1.05);
-    }
-
-    .audio-player .progress-bar {
-      width: 100%;
-      height: 8px;
-      background: #444;
-      border-radius: 5px;
-      margin-top: 10px;
-    }
-
-    .audio-player .progress {
-      height: 100%;
+    /* Podcast Button */
+    .podcast-button {
+      display: block;
       background: #ff6600;
-      border-radius: 5px;
-    }
-
-    .audio-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-    }
-
-    .audio-controls button {
-      background: transparent;
-      border: none;
-      color: #ffffff;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Über das Projekt */
-    .info-section {
-      text-align: center;
-      padding: 0 1rem;
-    }
-
-    .info-section p {
+      color: white;
       font-size: 1.2rem;
-      line-height: 1.7;
-      color: #d0d0d0;
+      padding: 1rem 2rem;
+      text-align: center;
+      border-radius: 10px;
+      text-decoration: none;
+      margin: 2rem auto;
+      max-width: 250px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .podcast-button:hover {
+      transform: scale(1.1);
+      background-color: #ff8533;
     }
 
     /* Team-Sektion */
@@ -113,20 +71,17 @@
       background: #222;
       padding: 4rem 0;
       margin-top: 5rem;
-    }
-
-    .team-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
     }
 
     .team-member {
       margin: 2rem;
-      display: inline-block;
-      width: 220px;
       text-align: center;
       animation: fadeIn 2s ease-out forwards;
+      transform: perspective(1000px) rotateY(15deg);
     }
 
     .team-member img {
@@ -200,14 +155,6 @@
         font-size: 1rem;
       }
 
-      .audio-player-container {
-        width: 90%;
-      }
-
-      .info-section h2 {
-        font-size: 1.5rem;
-      }
-
       .team-member {
         width: 100%;
       }
@@ -225,26 +172,11 @@
       <p>Ein Projekt von der Ethik-Gruppe</p>
     </header>
 
-    <!-- Audio-Player -->
-    <div class="audio-player-container">
-      <div class="audio-player">
-        <audio id="audio" controls>
-          <source src="Podcast.mp3" type="audio/mpeg">
-          Dein Browser unterstützt dieses Audio-Format nicht.
-        </audio>
-        <div class="progress-bar">
-          <div id="progress" class="progress"></div>
-        </div>
-        <div class="audio-controls">
-          <button onclick="playPauseAudio()">&#x25B6;</button>
-          <button onclick="muteUnmuteAudio()">&#x1F50A;</button>
-          <button onclick="restartAudio()">⏪</button>
-        </div>
-      </div>
-    </div>
+    <!-- Podcast Button -->
+    <a href="podcast.html" class="podcast-button">Zum Podcast</a>
 
     <!-- Über das Projekt -->
-    <div class="info-section content-box">
+    <div class="content-box">
       <h2>Über das Projekt</h2>
       <p>
         Das Projekt **"Schule ohne Rassismus"** ist ein bedeutendes Vorhaben der Ethik-Gruppe, das das Bewusstsein für Toleranz und Vielfalt fördert. 
@@ -255,7 +187,6 @@
 
     <!-- Team-Sektion -->
     <div class="team-section">
-      <h2>Unser Team</h2>
       <div class="team-member">
         <img src="https://via.placeholder.com/150" alt="Nael-Emin Ben Oun">
         <h3>Nael-Emin Ben Oun</h3>
@@ -309,31 +240,6 @@
       },
       retina_detect: true
     });
-
-    const audio = document.getElementById('audio');
-    const progress = document.getElementById('progress');
-
-    audio.ontimeupdate = () => {
-      const percent = (audio.currentTime / audio.duration) * 100;
-      progress.style.width = percent + "%";
-    };
-
-    function playPauseAudio() {
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    }
-
-    function muteUnmuteAudio() {
-      audio.muted = !audio.muted;
-    }
-
-    function restartAudio() {
-      audio.currentTime = 0;
-      audio.play();
-    }
   </script>
 </body>
 </html>
