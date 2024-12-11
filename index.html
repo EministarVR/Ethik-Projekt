@@ -1,6 +1,257 @@
 <!DOCTYPE html>
 <html lang="de">
+<head><!DOCTYPE html>
+<html lang="de">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schule ohne Rassismus</title>
+  
+  <!-- Meta-Tags für SEO -->
+  <meta name="description" content="Das Projekt 'Schule ohne Rassismus' fördert Vielfalt und Respekt an Schulen. Erfahre mehr über unsere Mission und unser Team.">
+  <meta name="keywords" content="Schule, Rassismus, Projekt, Vielfalt, Respekt, Toleranz, Ethik-Gruppe">
+  <meta name="author" content="Nael-Emin Ben Oun, Milan Pachulski, Anton Maziarz, Per Frosch, James Haynes">
+  <meta name="theme-color" content="#ff6600">
+
+  <!-- Meta-Tags für Social Media -->
+  <meta property="og:title" content="Schule ohne Rassismus - Ein Projekt der Ethik-Gruppe">
+  <meta property="og:description" content="Gemeinsam setzen wir uns für Toleranz und Vielfalt ein. Erfahre mehr über unser Projekt.">
+  <meta property="og:image" content="https://via.placeholder.com/600x315">
+  <meta property="og:url" content="https://deinprojekt.de">
+  <meta property="og:type" content="website">
+  <meta property="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    /* Allgemeine Stile */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #141414;
+      color: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin: 1rem 0;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 4px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #ff6600;
+    }
+
+    /* Zentrierte Boxen */
+    .content-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 850px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    /* Podcast Button */
+    .podcast-button {
+      display: inline-block;
+      background: #ff6600;
+      color: white;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .podcast-button:hover {
+      transform: scale(1.1);
+      background-color: #ff8533;
+    }
+
+    /* Team-Sektion */
+    .team-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .team-member {
+      text-align: center;
+      width: 180px;
+    }
+
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .team-member h3 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin: 0.5rem 0;
+    }
+
+    .team-member p {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      padding: 1.5rem;
+      text-align: center;
+      color: #bbb;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #ff6600;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    footer a:hover {
+      color: #ff8533;
+    }
+
+    /* Scroll-to-Top-Pfeil */
+    #scrollToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #ff6600;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1000;
+    }
+
+    #scrollToTop:hover {
+      transform: scale(1.1);
+      background-color: #ff8533;
+    }
+
+    #scrollToTop.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Animationen */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Partikel-Hintergrund -->
+  <div id="particles-js"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>Schule ohne Rassismus</h1>
+    <h2>Ein Projekt von der Ethik-Gruppe</h2>
+  </header>
+
+  <!-- Über das Projekt -->
+  <div class="content-box">
+    <h2>Über das Projekt</h2>
+    <p>
+      Das Projekt **"Schule ohne Rassismus"** fördert das Bewusstsein für Vielfalt und Respekt. 
+      Unser Ziel ist eine gleichberechtigte Gesellschaft, frei von Diskriminierung und Vorurteilen.
+    </p>
+    <a href="podcast.html" class="podcast-button">Zum Podcast</a>
+  </div>
+
+  <!-- Team-Sektion -->
+  <section class="team-section">
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150" alt="Nael-Emin Ben Oun">
+      <h3>Nael-Emin Ben Oun</h3>
+      <p>Coder der Website</p>
+    </div>
+    <!-- Weitere Team-Mitglieder -->
+  </section>
+
+  <!-- Scroll-to-Top-Pfeil -->
+  <div id="scrollToTop">↑</div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Schule ohne Rassismus</p>
+    <a href="#kontakt">Kontakt</a> | <a href="#impressum">Impressum</a>
+  </footer>
+
+  <!-- Partikel und Scroll-to-Top-Skript -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Partikel-Hintergrund
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 }},
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, color: "#ffffff" },
+        move: { enable: true, speed: 4 }
+      },
+      retina_detect: true
+    });
+
+    // Scroll-to-Top-Button
+    const scrollToTop = document.getElementById("scrollToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        scrollToTop.classList.add("visible");
+      } else {
+        scrollToTop.classList.remove("visible");
+      }
+    });
+
+    scrollToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schule ohne Rassismus</title>
