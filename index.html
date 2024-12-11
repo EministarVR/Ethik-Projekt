@@ -16,7 +16,7 @@
       height: 100%;
     }
 
-    h1 {
+    h1, h2 {
       font-size: 3rem;
       text-align: center;
       margin-top: 2rem;
@@ -26,7 +26,7 @@
       animation: fadeIn 2s ease-out;
     }
 
-    p {
+    p, .team-member p {
       text-align: center;
       margin: 1rem 0;
       font-size: 1.2rem;
@@ -81,14 +81,61 @@
       color: #d0d0d0;
     }
 
-    /* 3D Effekt */
-    .info-section {
-      transform: perspective(1500px) rotateY(30deg);
-      transition: transform 0.6s;
+    /* Team-Sektion */
+    .team-section {
+      background: #333;
+      padding: 3rem 0;
+      margin-top: 5rem;
     }
 
-    .info-section:hover {
-      transform: perspective(1500px) rotateY(0deg);
+    .team-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .team-member {
+      margin: 2rem 0;
+      display: inline-block;
+      width: 250px;
+      text-align: center;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .team-member h3 {
+      color: #fff;
+      margin-top: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .team-member p {
+      color: #ccc;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 5rem;
+      color: #bbb;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 1.1rem;
+    }
+
+    footer a:hover {
+      color: #ff6600;
     }
 
     /* Partikel-Hintergrund */
@@ -131,6 +178,10 @@
       .info-section h2 {
         font-size: 1.5rem;
       }
+
+      .team-member {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -162,7 +213,42 @@
         Wir laden alle ein, sich aktiv gegen Diskriminierung und Rassismus einzusetzen und für eine gleichberechtigte Gesellschaft zu kämpfen.
       </p>
     </div>
+
+    <!-- Team-Sektion -->
+    <div class="team-section">
+      <h2>Unser Team</h2>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Nael-Emin Ben Oun">
+        <h3>Nael-Emin Ben Oun</h3>
+        <p>Coder der Website</p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Milan Pachulski">
+        <h3>Milan Pachulski</h3>
+        <p>Projekt-Mitglied</p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Anton Maziarz">
+        <h3>Anton Maziarz</h3>
+        <p>Projekt-Mitglied</p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Per Frosch">
+        <h3>Per Frosch</h3>
+        <p>Projekt-Mitglied</p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="James Haynes">
+        <h3>James Haynes</h3>
+        <p>Projekt-Mitglied</p>
+      </div>
+    </div>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Schule ohne Rassismus | <a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
+  </footer>
 
   <!-- Partikel-Script -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
