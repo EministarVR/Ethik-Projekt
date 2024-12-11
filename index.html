@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schule ohne Rassismus</title>
+
+  <!-- Meta-Tags -->
   <meta name="description" content="Das Projekt 'Schule ohne Rassismus' fördert Vielfalt und Respekt an Schulen.">
   <meta name="keywords" content="Schule, Rassismus, Vielfalt, Respekt, Ethik, Projekt">
   <meta name="author" content="Nael-Emin Ben Oun">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  
+
   <style>
     /* Allgemeine Stile */
     body, html {
@@ -19,6 +21,9 @@
       color: #ffffff;
       background: #141414;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     header {
@@ -64,7 +69,6 @@
       max-width: 250px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
       transition: transform 0.3s ease, background-color 0.3s ease;
-      visibility: visible; /* Sicherstellen, dass der Button sichtbar ist */
     }
 
     .podcast-button:hover {
@@ -259,18 +263,21 @@
         opacity: { value: 0.5, random: false, anim: { enable: false }},
         size: { value: 3, random: true, anim: { enable: false }},
         line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 6 }
+        move: { enable: true, speed: 6, direction: "none", random: false }
       },
-      interactivity: {
-        detect_on: "window",
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" }
-        }
-      }
+      retina_detect: true
     });
 
-    // Funktion zum Scrollen nach oben
+    // Scroll-to-Top Funktion
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+    window.onscroll = function() {
+      if (window.scrollY > 200) {
+        scrollToTopBtn.classList.add("visible");
+      } else {
+        scrollToTopBtn.classList.remove("visible");
+      }
+    };
+
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
