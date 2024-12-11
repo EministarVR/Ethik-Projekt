@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schule ohne Rassismus</title>
+  <style>
+    /* Allgemeine Stile */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      color: #ffffff;
+      background: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    p {
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    /* Audio-Player */
+    .audio-player {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    audio {
+      width: 90%;
+      max-width: 400px;
+    }
+
+    /* Über das Projekt */
+    .info-section {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 0 1rem;
+    }
+
+    .info-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .info-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Responsives Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .info-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Partikel-Hintergrund */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: #1a1a1a;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Partikel-Hintergrund -->
+  <div id="particles-js"></div>
+
+  <!-- Hauptinhalt -->
+  <div class="container">
+    <header>
+      <h1>Schule ohne Rassismus</h1>
+      <p>Ein Projekt von der Ethik-Gruppe</p>
+    </header>
+
+    <!-- Audio-Player -->
+    <div class="audio-player">
+      <audio controls>
+        <source src="Podcast.mp3" type="audio/mpeg">
+        Dein Browser unterstützt dieses Audio-Format nicht.
+      </audio>
+    </div>
+
+    <!-- Über das Projekt -->
+    <div class="info-section">
+      <h2>Über das Projekt</h2>
+      <p>
+        Das Projekt "Schule ohne Rassismus" ist ein wichtiges Vorhaben, das von unserer Ethik-Gruppe ins Leben gerufen wurde. 
+        Es soll das Bewusstsein für Vielfalt und Respekt fördern und alle Schüler:innen ermutigen, aktiv gegen Diskriminierung einzutreten.
+      </p>
+    </div>
+  </div>
+
+  <!-- Partikel-Script -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 80,
+          density: { enable: true, value_area: 800 }
+        },
+        color: { value: "#ffffff" },
+        shape: {
+          type: "circle",
+          stroke: { width: 0, color: "#000000" },
+          polygon: { nb_sides: 5 }
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 6,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: { enable: false, rotateX: 600, rotateY: 1200 }
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 400, line_linked: { opacity: 1 } },
+          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+          repulse: { distance: 200, duration: 0.4 },
+          push: { particles_nb: 4 },
+          remove: { particles_nb: 2 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
