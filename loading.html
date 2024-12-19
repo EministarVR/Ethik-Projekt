@@ -6,7 +6,7 @@
   <title>Loading...</title>
 
   <style>
-    /* Allgemeine Stile */
+    /* Hintergrund und allgemeine Stile */
     body {
       margin: 0;
       padding: 0;
@@ -18,29 +18,37 @@
       font-family: "Poppins", sans-serif;
     }
 
-    /* Card */
+    /* Card-Container */
     .card {
       background-color: var(--bg-color);
-      padding: 2rem;
+      padding: 1rem 2rem;
       border-radius: 1.25rem;
       text-align: center;
-      width: 300px;
       color: #ffffff;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 
+    /* Loader-Stil */
     .loader {
       color: rgb(124, 124, 124);
+      font-family: "Poppins", sans-serif;
       font-weight: 500;
       font-size: 25px;
+      height: 40px;
+      padding: 10px 10px;
       display: flex;
       justify-content: center;
       align-items: center;
+      border-radius: 8px;
     }
 
+    /* Worte-container */
     .words {
       overflow: hidden;
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .words::after {
@@ -56,6 +64,7 @@
       z-index: 20;
     }
 
+    /* Animation der Wörter */
     .word {
       display: block;
       height: 100%;
@@ -64,7 +73,6 @@
       animation: spin_4991 4s infinite;
     }
 
-    /* Animation für das Wort */
     @keyframes spin_4991 {
       10% {
         -webkit-transform: translateY(-102%);
@@ -106,6 +114,7 @@
         transform: translateY(-400%);
       }
     }
+
   </style>
 </head>
 <body>
