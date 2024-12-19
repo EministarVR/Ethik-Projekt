@@ -6,32 +6,36 @@
   <title>Loading...</title>
 
   <style>
-    /* From Uiverse.io by kennyotsu */ 
+    /* Allgemeine Stile */
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #212121;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Card */
     .card {
-      /* color used to softly clip top and bottom of the .words container */
-      --bg-color: #212121;
       background-color: var(--bg-color);
-      padding: 1rem 2rem;
+      padding: 2rem;
       border-radius: 1.25rem;
-      width: 300px;
-      margin: 100px auto;
       text-align: center;
+      width: 300px;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 
     .loader {
       color: rgb(124, 124, 124);
-      font-family: "Poppins", sans-serif;
       font-weight: 500;
       font-size: 25px;
-      -webkit-box-sizing: content-box;
-      box-sizing: content-box;
-      height: 40px;
-      padding: 10px 10px;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      border-radius: 8px;
       justify-content: center;
+      align-items: center;
     }
 
     .words {
@@ -60,6 +64,7 @@
       animation: spin_4991 4s infinite;
     }
 
+    /* Animation für das Wort */
     @keyframes spin_4991 {
       10% {
         -webkit-transform: translateY(-102%);
