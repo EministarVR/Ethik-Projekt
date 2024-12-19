@@ -69,6 +69,8 @@
       max-width: 250px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
       transition: transform 0.3s ease, background-color 0.3s ease;
+      position: relative;
+      z-index: 20; /* Button wird sichtbar über Partikeln */
     }
 
     .podcast-button:hover {
@@ -213,7 +215,7 @@
     </header>
 
     <!-- Podcast Button -->
-    <div style="text-align: center; margin-top: 10rem;">
+    <div style="text-align: center; margin-top: 10rem; padding: 2rem;">
       <a href="loading.html" class="podcast-button">Zum Podcast</a>
     </div>
 
