@@ -19,7 +19,7 @@
       }
       45%,
       55% {
-        width: 6.2em;
+        width: 10em; /* Breite angepasst für größeren Text */
       } /* adjust width based on content */
       90%,
       100% {
@@ -42,14 +42,26 @@
       background-color: #222; /* Weniger kontrastreiche Hintergrundfarbe */
       color: #0f0;
       font-family: "Courier New", Courier, monospace;
-      font-size: 1em;
-      padding: 1.5em 1em;
-      width: 12em;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
+      font-size: 1.5em; /* Größerer Text */
+      padding: 2em 1.5em; /* Mehr Padding für größere Anzeige */
+      width: 20em; /* Breite erhöht */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Weicherer Schatten */
+      border-radius: 8px; /* Sanftere Ecken */
       position: relative;
       overflow: hidden;
       box-sizing: border-box;
+      animation: smoothEntrance 1s ease-out; /* Smootherer Einstieg */
+    }
+
+    @keyframes smoothEntrance {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .terminal-header {
@@ -57,11 +69,11 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 1.5em;
+      height: 2em;
       background-color: #333;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-      padding: 0 0.4em;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      padding: 0 0.6em;
       box-sizing: border-box;
     }
 
@@ -71,9 +83,9 @@
 
     .control {
       display: inline-block;
-      width: 0.6em;
-      height: 0.6em;
-      margin-left: 0.4em;
+      width: 0.8em; /* Größere Buttons */
+      height: 0.8em;
+      margin-left: 0.5em;
       border-radius: 50%;
       background-color: #777;
     }
@@ -92,7 +104,7 @@
 
     .terminal-title {
       float: left;
-      line-height: 1.5em;
+      line-height: 2em;
       color: #eee;
     }
 
@@ -101,9 +113,9 @@
       white-space: nowrap;
       overflow: hidden;
       border-right: 0.2em solid green; /* Cursor */
-      animation: typeAndDelete 4s steps(11) infinite,
+      animation: typeAndDelete 6s steps(15) infinite, /* Langsamere Animation */
         blinkCursor 0.5s step-end infinite alternate;
-      margin-top: 1.5em;
+      margin-top: 2em;
     }
   </style>
 </head>
