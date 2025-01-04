@@ -2,7 +2,7 @@
 
 Willkommen auf der offiziellen Seite des Projekts **"Schule ohne Rassismus"**!  
 Dieses Projekt wurde von der **Ethik-Gruppe** ins Leben gerufen, um ein starkes Zeichen gegen Diskriminierung zu setzen und das Bewusstsein für Respekt und Vielfalt zu fördern.
-
+Zu der Website: https://eministarvr.github.io/Ethik-Projekt/
 ---
 
 ## 🎙️ **Der Podcast**
