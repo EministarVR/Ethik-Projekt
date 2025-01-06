@@ -3,202 +3,291 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schule ohne Rassismus</title>
-  
-  <!-- Meta-Tags -->
-  <meta name="description" content="Das Projekt 'Schule ohne Rassismus' fördert Vielfalt und Respekt an Schulen.">
-  <meta name="keywords" content="Schule, Rassismus, Projekt, Vielfalt, Respekt, Toleranz">
-  <meta name="author" content="Nael-Emin Ben Oun">
-  <meta name="theme-color" content="#ff6600">
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+  <title>Podcast: Schule ohne Rassismus</title>
   <style>
     /* Allgemeine Stile */
     body, html {
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #1a1a1a, #262626);
       color: #ffffff;
-      scroll-behavior: smooth;
-      min-height: 100vh;
+      background: #141414;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden; /* Verhindert Scrollen */
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      z-index: 10;
+      position: relative; /* Position relativ für z-index */
     }
 
     h1 {
       font-size: 3rem;
-      text-align: center;
-      margin: 2rem 0 1rem;
       text-transform: uppercase;
-      color: #ff6600;
+      letter-spacing: 4px;
+      margin: 0;
+      color: #ffffff;
     }
 
-    h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin: 1rem 0;
+    p {
+      font-size: 1rem;
+      color: #bbbbbb;
     }
 
-    .content-box {
-      background: rgba(255, 255, 255, 0.1);
+    .player-container {
+      background: rgba(34, 34, 34, 0.9);
       border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem auto;
-      max-width: 850px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-    }
-
-    .podcast-button {
-      display: inline-block;
-      background: #ff6600;
-      color: white;
-      font-size: 1.2rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .podcast-button:hover {
-      transform: scale(1.1);
-      background-color: #ff8533;
-    }
-
-    .team-section {
+      padding: 20px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 3rem;
+      flex-direction: column;
+      align-items: center;
+      position: relative; /* Füge dies hinzu, um sicherzustellen, dass der Player über dem Hintergrund ist */
+      z-index: 1; /* Höherer z-index als der Partikel-Hintergrund */
     }
 
-    .team-member {
+    .player-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #ff9900;
       text-align: center;
-      width: 180px;
     }
 
-    .team-member img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    .audio-progress {
+      width: 100%;
+      margin: 15px 0;
+      position: relative;
     }
 
-    .team-member h3 {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-      color: #ff6600;
+    .progress-bar {
+      width: 100%;
+      height: 5px;
+      background: #444;
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
     }
 
-    .team-member p {
+    .progress {
+      height: 5px;
+      background: linear-gradient(90deg, #ff9900, #ff6600);
+      width: 0%;
+    }
+
+    .time {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
       font-size: 0.9rem;
-      color: #ddd;
+      color: #bbbbbb;
     }
 
-    footer {
-      background: #333;
-      padding: 1.5rem;
-      text-align: center;
-      color: #bbb;
-      margin-top: 3rem;
+    .controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin: 20px 0;
     }
 
-    footer a {
-      color: #ff6600;
-      text-decoration: none;
-      margin: 0 1rem;
-    }
-
-    footer a:hover {
-      color: #ff8533;
-    }
-
-    #scrollToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+    .controls button {
+      background: #ff6600;
+      border: none;
+      color: #fff;
+      border-radius: 50%;
       width: 50px;
       height: 50px;
-      background-color: #ff6600;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      font-size: 1.2rem;
       cursor: pointer;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      visibility: hidden;
-      opacity: 0;
-      z-index: 1000;
+      transition: transform 0.2s ease, background 0.3s;
     }
 
-    #scrollToTop:hover {
+    .controls button:hover {
+      background: #e05500;
       transform: scale(1.1);
-      background-color: #ff8533;
     }
 
-    #scrollToTop.visible {
-      visibility: visible;
-      opacity: 1;
+    .speed-control {
+      margin: 15px 0;
+    }
+
+    .speed-control label {
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+
+    .speed-control select {
+      padding: 0.4rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      background: #333;
+      color: #fff;
+    }
+
+    .download-btn {
+      margin-top: 1rem;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background: #3e8e41;
+    }
+
+    /* Partikel Hintergrund */
+    #particles-js {
+      position: fixed; /* Ändere von absolute zu fixed */
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1; /* Stelle sicher, dass es hinter dem Player ist */
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Partikel-Hintergrund -->
+  <div id="particles-js"></div>
+
   <header>
-    <h1>Schule ohne Rassismus</h1>
-    <h2>Ein Projekt der Ethik-Gruppe</h2>
+    <h1>Podcast: Schule ohne Rassismus</h1>
+    <p>Ein Projekt von der Ethik-Gruppe</p>
   </header>
 
-  <!-- Über das Projekt -->
-  <div class="content-box">
-    <h2>Über das Projekt</h2>
-    <p>
-      Das Projekt "Schule ohne Rassismus" fördert das Bewusstsein für Vielfalt und Respekt. 
-      Unser Ziel ist eine gleichberechtigte Gesellschaft, frei von Diskriminierung und Vorurteilen.
-    </p>
-    <a href="podcast.html" class="podcast-button">Zum Podcast</a>
+  <div class="player-container">
+    <h2 class="player-title">Hör dir den Podcast an!</h2>
+
+    <!-- Audio Element -->
+    <audio id="audio" src="Podcast.mp3" preload="metadata"></audio>
+
+    <!-- Fortschrittsanzeige -->
+    <div class="audio-progress" onclick="seek(event)">
+      <div class="progress-bar">
+        <div id="progress" class="progress"></div>
+      </div>
+      <div class="time">
+        <span id="current-time">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <!-- Audio-Steuerelemente -->
+    <div class="controls">
+      <button onclick="rewind()">⏪</button>
+      <button onclick="playPause()">▶️</button>
+      <button onclick="forward()">⏩</button>
+    </div>
+
+    <!-- Geschwindigkeit -->
+    <div class="speed-control">
+      <label for="speed">Geschwindigkeit:</label>
+      <select id="speed" onchange="setSpeed()">
+        <option value="0.5">0.5x</option>
+        <option value="1" selected>1x (Normal)</option>
+        <option value="1.5">1.5x</option>
+        <option value="2">2x</option>
+      </select>
+    </div>
+
+    <!-- Download-Button -->
+    <a id="download" href="Podcast.mp3" class="download-btn" download="Podcast.mp3">📥 Herunterladen</a>
   </div>
 
-  <!-- Team-Sektion -->
-  <section class="team-section">
-    <div class="team-member">
-      <img src="https://via.placeholder.com/150" alt="Nael-Emin Ben Oun">
-      <h3>Nael-Emin Ben Oun</h3>
-      <p>Coder der Website</p>
-    </div>
-    <!-- Weitere Team-Mitglieder -->
-  </section>
-
-  <!-- Scroll-to-Top-Pfeil -->
-  <div id="scrollToTop">↑</div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Schule ohne Rassismus</p>
-    <a href="#kontakt">Kontakt</a> | <a href="#impressum">Impressum</a>
-  </footer>
-
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    // Scroll-to-Top-Button
-    const scrollToTop = document.getElementById("scrollToTop");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        scrollToTop.classList.add("visible");
-      } else {
-        scrollToTop.classList.remove("visible");
+    // Partikel-Hintergrund laden
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 100 },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 3,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "bounce"
+        }
       }
     });
 
-    scrollToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    const audio = document.getElementById('audio');
+    const progress = document.getElementById('progress');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('duration');
+
+    // Audio-Events
+    audio.addEventListener('timeupdate', updateProgress);
+    audio.addEventListener('loadedmetadata', () => {
+      durationEl.textContent = formatTime(audio.duration);
     });
+
+    // Funktionen
+    function playPause() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    function rewind() {
+      audio.currentTime -= 10;
+    }
+
+    function forward() {
+      audio.currentTime += 10;
+    }
+
+    function setSpeed() {
+      const speed = document.getElementById('speed').value;
+      audio.playbackRate = speed;
+    }
+
+    function updateProgress() {
+      const percent = (audio.currentTime / audio.duration) * 100;
+      progress.style.width = percent + '%';
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+
+    function seek(event) {
+      const rect = event.target.getBoundingClientRect();
+      const clickX = event.clientX - rect.left;
+      const width = rect.width;
+      audio.currentTime = (clickX / width) * audio.duration;
+    }
+
+    function formatTime(time) {
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+      return `${minutes}:${seconds}`;
+    }
   </script>
 </body>
 </html>
