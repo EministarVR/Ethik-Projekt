@@ -17,14 +17,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      overflow: hidden; /* Verhindert Scrollen */
+      overflow: hidden;
     }
 
     header {
       text-align: center;
       padding: 2rem 1rem;
-      z-index: 10;
-      position: relative; /* Position relativ für z-index */
     }
 
     h1 {
@@ -50,8 +48,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative; /* Füge dies hinzu, um sicherzustellen, dass der Player über dem Hintergrund ist */
-      z-index: 1; /* Höherer z-index als der Partikel-Hintergrund */
     }
 
     .player-title {
@@ -61,75 +57,10 @@
       text-align: center;
     }
 
-    .audio-progress {
+    audio {
       width: 100%;
       margin: 15px 0;
-      position: relative;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 5px;
-      background: #444;
-      border-radius: 5px;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .progress {
-      height: 5px;
-      background: linear-gradient(90deg, #ff9900, #ff6600);
-      width: 0%;
-    }
-
-    .time {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      font-size: 0.9rem;
-      color: #bbbbbb;
-    }
-
-    .controls {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      margin: 20px 0;
-    }
-
-    .controls button {
-      background: #ff6600;
-      border: none;
-      color: #fff;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.3s;
-    }
-
-    .controls button:hover {
-      background: #e05500;
-      transform: scale(1.1);
-    }
-
-    .speed-control {
-      margin: 15px 0;
-    }
-
-    .speed-control label {
-      font-size: 1rem;
-      margin-right: 0.5rem;
-    }
-
-    .speed-control select {
-      padding: 0.4rem;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: none;
-      background: #333;
-      color: #fff;
+      outline: none;
     }
 
     .download-btn {
@@ -142,7 +73,6 @@
       font-size: 1rem;
       cursor: pointer;
       text-decoration: none;
-      display: inline-block;
       transition: background 0.3s ease;
     }
 
@@ -150,14 +80,14 @@
       background: #3e8e41;
     }
 
-    /* Partikel Hintergrund */
+    /* Partikel-Hintergrund */
     #particles-js {
-      position: fixed; /* Ändere von absolute zu fixed */
+      position: fixed;
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
-      z-index: -1; /* Stelle sicher, dass es hinter dem Player ist */
+      z-index: -1;
     }
   </style>
 </head>
@@ -173,40 +103,14 @@
   <div class="player-container">
     <h2 class="player-title">Hör dir den Podcast an!</h2>
 
-    <!-- Audio Element -->
-    <audio id="audio" src="Podcast.mp3" preload="metadata"></audio>
-
-    <!-- Fortschrittsanzeige -->
-    <div class="audio-progress" onclick="seek(event)">
-      <div class="progress-bar">
-        <div id="progress" class="progress"></div>
-      </div>
-      <div class="time">
-        <span id="current-time">0:00</span>
-        <span id="duration">0:00</span>
-      </div>
-    </div>
-
-    <!-- Audio-Steuerelemente -->
-    <div class="controls">
-      <button onclick="rewind()">⏪</button>
-      <button onclick="playPause()">▶️</button>
-      <button onclick="forward()">⏩</button>
-    </div>
-
-    <!-- Geschwindigkeit -->
-    <div class="speed-control">
-      <label for="speed">Geschwindigkeit:</label>
-      <select id="speed" onchange="setSpeed()">
-        <option value="0.5">0.5x</option>
-        <option value="1" selected>1x (Normal)</option>
-        <option value="1.5">1.5x</option>
-        <option value="2">2x</option>
-      </select>
-    </div>
+    <!-- Einfache Audio-Player -->
+    <audio controls>
+      <source src="Podcast (3).mp3" type="audio/mpeg">
+      Dein Browser unterstützt keine Audio-Wiedergabe.
+    </audio>
 
     <!-- Download-Button -->
-    <a id="download" href="Podcast.mp3" class="download-btn" download="Podcast.mp3">📥 Herunterladen</a>
+    <a href="Podcast.mp3" class="download-btn" download="Podcast (3).mp3">📥 Herunterladen</a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -236,58 +140,6 @@
         }
       }
     });
-
-    const audio = document.getElementById('audio');
-    const progress = document.getElementById('progress');
-    const currentTimeEl = document.getElementById('current-time');
-    const durationEl = document.getElementById('duration');
-
-    // Audio-Events
-    audio.addEventListener('timeupdate', updateProgress);
-    audio.addEventListener('loadedmetadata', () => {
-      durationEl.textContent = formatTime(audio.duration);
-    });
-
-    // Funktionen
-    function playPause() {
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    }
-
-    function rewind() {
-      audio.currentTime -= 10;
-    }
-
-    function forward() {
-      audio.currentTime += 10;
-    }
-
-    function setSpeed() {
-      const speed = document.getElementById('speed').value;
-      audio.playbackRate = speed;
-    }
-
-    function updateProgress() {
-      const percent = (audio.currentTime / audio.duration) * 100;
-      progress.style.width = percent + '%';
-      currentTimeEl.textContent = formatTime(audio.currentTime);
-    }
-
-    function seek(event) {
-      const rect = event.target.getBoundingClientRect();
-      const clickX = event.clientX - rect.left;
-      const width = rect.width;
-      audio.currentTime = (clickX / width) * audio.duration;
-    }
-
-    function formatTime(time) {
-      const minutes = Math.floor(time / 60);
-      const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-      return `${minutes}:${seconds}`;
-    }
   </script>
 </body>
 </html>
