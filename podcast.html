@@ -40,10 +40,22 @@
       color: #bbbbbb;
     }
 
-    audio {
+    /* Entfernen des Standard-Stils des Audio-Players */
+    .audio-container {
       margin-top: 1rem;
       width: 90%;
       max-width: 600px;
+      background: none;
+      border: none;
+      position: relative;
+    }
+
+    .audio-container audio {
+      width: 100%;
+      background: none;
+      border: none;
+      outline: none;
+      display: block;
       z-index: 1;
     }
 
@@ -94,7 +106,9 @@
   </header>
 
   <!-- Minimalistischer Audioplayer -->
-  <audio controls src="Podcast (3).mp3" preload="metadata"></audio>
+  <div class="audio-container">
+    <audio controls src="Podcast (3).mp3" preload="metadata"></audio>
+  </div>
 
   <div class="controls">
     <!-- Download-Button -->
