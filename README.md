@@ -9,7 +9,7 @@ Dieses Projekt wurde von der **Ethik-Gruppe** ins Leben gerufen, um ein starkes 
 
 Erlebe unseren inspirierenden Podcast, der tiefere Einblicke in das Thema **Schule ohne Rassismus** bietet. Dieser Podcast ist das Ergebnis monatelanger Arbeit und Gespräche, die das Herzstück dieses Projekts darstellen.  
 
-[🎧 Podcast anhören](Podcast.mp3)
+[🎧 Podcast anhören](https://open.spotify.com/episode/3r5TP02PEVHPU4noOutxWK?si=l4JYFZkQS1evrYX9VGgBwA)
 
 ---
 
