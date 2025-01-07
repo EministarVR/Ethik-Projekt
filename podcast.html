@@ -23,6 +23,8 @@
     header {
       text-align: center;
       padding: 2rem 1rem;
+      z-index: 10;
+      position: relative;
     }
 
     h1 {
@@ -38,33 +40,22 @@
       color: #bbbbbb;
     }
 
-    .player-container {
-      background: none;
-      border-radius: 15px;
-      padding: 20px;
-      max-width: 600px;
+    audio {
+      margin-top: 1rem;
       width: 90%;
-      box-shadow: none;
+      max-width: 600px;
+      z-index: 1;
+    }
+
+    .controls {
+      margin-top: 20px;
       display: flex;
+      gap: 20px;
       flex-direction: column;
       align-items: center;
     }
 
-    .player-title {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #ff9900;
-      text-align: center;
-    }
-
-    audio {
-      width: 100%;
-      margin: 15px 0;
-      outline: none;
-    }
-
-    .download-btn {
-      margin-top: 1rem;
+    .download-btn, .spotify-btn {
       background: #4CAF50;
       color: #fff;
       border: none;
@@ -73,14 +64,16 @@
       font-size: 1rem;
       cursor: pointer;
       text-decoration: none;
+      display: inline-block;
       transition: background 0.3s ease;
+      margin-top: 10px;
     }
 
-    .download-btn:hover {
+    .download-btn:hover, .spotify-btn:hover {
       background: #3e8e41;
     }
 
-    /* Partikel-Hintergrund */
+    /* Partikel Hintergrund */
     #particles-js {
       position: fixed;
       width: 100%;
@@ -100,17 +93,17 @@
     <p>Ein Projekt von der Ethik-Gruppe</p>
   </header>
 
-  <div class="player-container">
-    <h2 class="player-title">Hör dir den Podcast an!</h2>
+  <!-- Minimalistischer Audioplayer -->
+  <audio controls src="Podcast (3).mp3" preload="metadata"></audio>
 
-    <!-- Einfache Audio-Player -->
-    <audio controls>
-      <source src="Podcast (3).mp3" type="audio/mpeg">
-      Dein Browser unterstützt keine Audio-Wiedergabe.
-    </audio>
-
+  <div class="controls">
     <!-- Download-Button -->
-    <a href="Podcast.mp3" class="download-btn" download="Podcast (3).mp3">📥 Herunterladen</a>
+    <a href="Podcast (3).mp3" class="download-btn" download="Podcast (3).mp3">📥 Herunterladen</a>
+
+    <!-- Spotify-Link -->
+    <a href="https://open.spotify.com/episode/3r5TP02PEVHPU4noOutxWK?si=l4JYFZkQS1evrYX9VGgBwA&nd=1&dlsi=4e7afe1ca5064711" class="spotify-btn" target="_blank">
+      🎧 Auf Spotify anhören
+    </a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
